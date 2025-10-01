@@ -1,3 +1,29 @@
+       // ------------------------------------------
+        // MOBILE NAVIGATION TOGGLE
+        // ------------------------------------------
+        const toggleMobileMenu = () => {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.querySelector('#mobile-menu-button i');
+            menu.classList.toggle('hidden');
+            
+            // Toggle icon between 'menu' and 'x' (close)
+            if (menu.classList.contains('hidden')) {
+                icon.setAttribute('data-lucide', 'menu');
+            } else {
+                icon.setAttribute('data-lucide', 'x');
+            }
+            lucide.createIcons(); // Re-render icon
+        }
+
+        const closeMobileMenu = () => {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.querySelector('#mobile-menu-button i');
+            menu.classList.add('hidden');
+            icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons(); // Re-render icon
+        }
+
+
         // Initialize Lucide Icons for static elements
         lucide.createIcons();
 
@@ -30,9 +56,6 @@
                     const issuer = card.querySelector('p:nth-child(3)');
                     const date = card.querySelector('p:nth-child(4)');
                     
-                    // NOTE: The link button element is now removed from the template
-                    // so we only focus on displaying the core information.
-
                     // Set Icon and Color
                     icon.setAttribute('data-lucide', cert.icon);
                     // Use the color property for the icon
